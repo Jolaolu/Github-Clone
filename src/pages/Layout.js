@@ -1,5 +1,4 @@
 import React from 'react';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Header from '../components/layout/Header';
 import Sidebar from '../components/layout/Sidebar';
 import Navigation from '../components/layout/Navigation';
