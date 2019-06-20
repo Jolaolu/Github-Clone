@@ -34,7 +34,7 @@ export class Overview extends React.Component{
         let pinned =[], repos = this.state.userData
         console.log(repos)
         for (let index = 0; index < 6; index+=2) {
-            let repo1 = repos[index] || {name: "", description: ""}, repo2 = repos[index+1] || {name: "", description: ""}
+            let repo1 = repos[index] || {name: "", description: "", language:"", stargazers:""}, repo2 = repos[index+1] || {name: "", description: "", language:"", stargazers:""}
             console.log(repo1)
             pinned.push(
                 <div className="w-full flex inline">
@@ -46,11 +46,11 @@ export class Overview extends React.Component{
                         <div className="pt-3 ml-4 ">
                             <div className="inline">
                                 <span className="lang mr-1"> </span> 
-                                <span className="text-xs mr-4 inline">CSS</span>
+                                <span className="text-xs mr-4 inline">{repo1.language}</span>
                             </div>
                             <div className="inline">
                                 <Octicon icon={Star} size='small' className="mr-2" />
-                                <div className="text-xs inline">28</div>
+                                <div className="text-xs inline">{repo1.stargazers_count}</div>
                             </div>
                         </div>
                     </div>
@@ -63,11 +63,11 @@ export class Overview extends React.Component{
                         <div className="pt-3 ml-4 ">
                             <div className="inline">
                                 <span className="lang mr-1"> </span> 
-                                <span className="text-xs mr-4 inline">CSS</span>
+                                <span className="text-xs mr-4 inline">{repo2.language}</span>
                             </div>
                             <div className="inline">
                                 <Octicon icon={Star} size='small' className="mr-2" />
-                                <div className="text-xs inline">28</div>
+                                <div className="text-xs inline">{repo2.stargazers_count}</div>
                             </div>
                         </div>
                     </div>
