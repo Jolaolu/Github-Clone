@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Octicon, {Repo, Star, Project} from '@primer/octicons-react'
+import Octicon, {Repo, Star, RepoForked} from '@primer/octicons-react'
 import axios from 'axios'
 
 export class Overview extends React.Component{
@@ -34,7 +34,7 @@ export class Overview extends React.Component{
         let pinned =[], repos = this.state.userData
         console.log(repos)
         for (let index = 0; index < 6; index+=2) {
-            let repo1 = repos[index] || {name: "", description: "", language:"", stargazers:""}, repo2 = repos[index+1] || {name: "", description: "", language:"", stargazers:""}
+            let repo1 = repos[index] || {name: "", description: "", language:"", stargazers:"", forks:""}, repo2 = repos[index+1] || {name: "", description: "", language:"", stargazers:"" , forks:""}
             console.log(repo1)
             pinned.push(
                 <div className="w-full flex inline">
@@ -51,6 +51,8 @@ export class Overview extends React.Component{
                             <div className="inline">
                                 <Octicon icon={Star} size='small' className="mr-2" />
                                 <div className="text-xs inline">{repo1.stargazers_count}</div>
+                                <Octicon icon={RepoForked} size='small' className="mr-2 ml-6 inline"/>
+                                <div className="inline ml-1 mr-1 text-xs">{repo1.forks_count}</div>
                             </div>
                         </div>
                     </div>
@@ -68,6 +70,8 @@ export class Overview extends React.Component{
                             <div className="inline">
                                 <Octicon icon={Star} size='small' className="mr-2" />
                                 <div className="text-xs inline">{repo2.stargazers_count}</div>
+                                <Octicon icon={RepoForked} size='small' className="mr-2 ml-6 inline"/>
+                                <div className="inline ml-1 mr-1 text-xs">{repo2.forks_count}</div>
                             </div>
                         </div>
                     </div>

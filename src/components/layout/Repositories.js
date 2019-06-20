@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import Octicon, {Repo, Star, RepoForked} from '@primer/octicons-react'
 
 export class Repositories extends React.Component{
 
@@ -29,12 +30,16 @@ export class Repositories extends React.Component{
 generateRepos(){
     return this.state.userData.map(repo => {
             return(
-                <div className="w-full justify-center px-3 py-3 border-t border-gray-300 ">
+                <div className="w-full container mx-auto justify-center px-3 py-3 border-t border-gray-300 ">
                     <div className="pt-5">
                         <img src="" alt="" srcset="" className="inline"/>
                         <span className="inline pl-4 pr-4">{repo.name}</span>
-                        <span className="inline  pl-4 pr-4">{repo.description}</span>
-                        <div className="p-3"></div>
+                        <button type="submit" className="inine button col w-1/12 h-8 float-right rounded border border-gray-500 font-semibold text-sm focus:border-none">
+                            <Octicon icon={Star} size='small'/> Star
+                        </button>
+                        <div className="p-3">
+                        <span className="text-sm  pl-4 pr-4">{repo.description}</span>
+                        </div>
                         <span></span>
                     </div>
                 </div>
