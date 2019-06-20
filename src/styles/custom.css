@@ -22,3 +22,9 @@ header{
     border-radius: 50%;
     display: inline-block;
 }
+
+.search-email {
+        border-top-right-radius: 0;
+        min-width: 300px;
+        border-bottom-right-radius: 0;
+}
