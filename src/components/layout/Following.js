@@ -33,7 +33,10 @@ generateFollowing(){
                         <img src={follow.avatar_url} alt="" srcset="" className="inline h-8 w-8"/>
                         <span className="inline pl-4 pr-4">{follow.login}</span>
                         <span className="inline  pl-4 pr-4">{follow.bio}</span>
-                        <div className="p-3"></div>
+                        <input className="inline float-right justify-center button col w-1/14 h-6 rounded border border-gray-500 font-semibold text-sm pl-4 pr-4" type="submit" value="Follow"/>
+                                <div className="p-3">
+                                   <span className="text-sm  pl-4 pr-4">{follow.bio}</span>
+                                </div>
                         <span></span>
                     </div>
                 </div>
