@@ -8,6 +8,7 @@
         "config": { "distDir": "build" }
       }
     ],
+    "alias": "github-clone",
     "routes": [
       {
         "src": "/static/(.*)",

@@ -17,7 +17,7 @@ export class Layout extends React.Component{
         super()
         this.state = {
             username: '',
-            currentView : "repo",
+            currentView : "overview",
         }
         this.changeView = this.changeView.bind(this)
     }

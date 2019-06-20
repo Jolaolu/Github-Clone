@@ -13,69 +13,74 @@ export class Overview extends React.Component{
         }
         this.generateRepos = this.generateRepos.bind(this)
     }
-
+    
     componentWillMount() {
-        let parts = window.location.href.split("/"), username = parts[parts.length - 2];  
+        console.log("mounting")
+        let parts = window.location.href.split("/"), username = parts[parts.length - 1];  
+        console.log("nme", username)
         //axios
   
-    axios.get(`https://api.github.com/users/${username}/repos`)
-        .then(response => {
-            console.log(response.data)
-            this.setState({
-                userData : response.data
+        return axios.get(`https://api.github.com/users/${username}/repos`)
+            .then(response => {
+                console.log("reposs", response.data)
+                this.setState({
+                    userData : response.data
         })})
         .catch(err => { console.log(err); });
 
-}  
-generateRepos(){
-    let pinned =[], repos = this.state.userData
-    for (let index = 0; index < 6; index+=2) {
-        let repo1 = repos[index], repo2 = repos[index+1]
-        pinned.push(
-            <div className="w-full flex inline">
-            <div className="w-1/2 m-2 px-4  py-4 border border-gray-300 inline">
-                <div>
-                    <Octicon icon={Repo} size='small' ariaLabel='GitHub'/>
-                    <span> <a href="http://" className="p-2 text-blue-500 text-sm font-semibold hover:underline">{repo1.name}</a> </span>
-                    <div><a href="http://" className="p-3 text-xs">{repo1.description}</a></div>
-                    <div className="pt-3 ml-4 ">
-                        <div className="inline">
-                            <span className="lang mr-1"> </span> 
-                            <span className="text-xs mr-4 inline">CSS</span>
+    }  
+    generateRepos(){
+        console.log("reposs2", this.state.userData)
+        let pinned =[], repos = this.state.userData
+        console.log(repos)
+        for (let index = 0; index < 6; index+=2) {
+            let repo1 = repos[index] || {name: "", description: ""}, repo2 = repos[index+1] || {name: "", description: ""}
+            console.log(repo1)
+            pinned.push(
+                <div className="w-full flex inline">
+                <div className="w-1/2 m-2 px-4  py-4 border border-gray-300 inline">
+                    <div>
+                        <Octicon icon={Repo} size='small' ariaLabel='GitHub'/>
+                        <span> <a href="http://" className="p-2 text-blue-500 text-sm font-semibold hover:underline">{repo1.name}</a> </span>
+                        <div><a href="http://" className="p-3 text-xs">{repo1.description}</a></div>
+                        <div className="pt-3 ml-4 ">
+                            <div className="inline">
+                                <span className="lang mr-1"> </span> 
+                                <span className="text-xs mr-4 inline">CSS</span>
+                            </div>
+                            <div className="inline">
+                                <Octicon icon={Star} size='small' className="mr-2" />
+                                <div className="text-xs inline">28</div>
+                            </div>
                         </div>
-                        <div className="inline">
-                            <Octicon icon={Star} size='small' className="mr-2" />
-                            <div className="text-xs inline">28</div>
+                    </div>
+                </div>
+                <div className="w-1/2 m-2 px-4  py-4 border border-gray-300 inline">
+                    <div>
+                        <Octicon icon={Repo} size='small' ariaLabel='GitHub'/>
+                        <span> <a href="http://" className="p-2 text-blue-500 text-sm font-semibold hover:underline">{repo2.name}</a> </span>
+                        <div><a href="http://" className="p-3 text-xs">{repo2.description}</a></div>
+                        <div className="pt-3 ml-4 ">
+                            <div className="inline">
+                                <span className="lang mr-1"> </span> 
+                                <span className="text-xs mr-4 inline">CSS</span>
+                            </div>
+                            <div className="inline">
+                                <Octicon icon={Star} size='small' className="mr-2" />
+                                <div className="text-xs inline">28</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div className="w-1/2 m-2 px-4  py-4 border border-gray-300 inline">
-                <div>
-                    <Octicon icon={Repo} size='small' ariaLabel='GitHub'/>
-                    <span> <a href="http://" className="p-2 text-blue-500 text-sm font-semibold hover:underline">{repo2.name}</a> </span>
-                    <div><a href="http://" className="p-3 text-xs">{repo2.description}</a></div>
-                    <div className="pt-3 ml-4 ">
-                        <div className="inline">
-                            <span className="lang mr-1"> </span> 
-                            <span className="text-xs mr-4 inline">CSS</span>
-                        </div>
-                        <div className="inline">
-                            <Octicon icon={Star} size='small' className="mr-2" />
-                            <div className="text-xs inline">28</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
 
-        )
-        
+            )
+            
+        }
+        return pinned
+
     }
-    return pinned
-
-}
 render() {
 
 
