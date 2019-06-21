@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import Octicon, {Repo, Star, RepoForked} from '@primer/octicons-react'
+import Octicon, {Star, RepoForked} from '@primer/octicons-react'
 
 class Stars extends React.Component{
  constructor(){

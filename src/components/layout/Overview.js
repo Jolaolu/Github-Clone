@@ -1,5 +1,4 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
 import Octicon, {Repo, Star, RepoForked} from '@primer/octicons-react'
 import axios from 'axios'
 
@@ -8,7 +7,7 @@ export class Overview extends React.Component{
         super()
         this.state = {
             username: '',
-            userData:[]
+            userData:[],
             
         }
         this.generateRepos = this.generateRepos.bind(this)
@@ -34,7 +33,7 @@ export class Overview extends React.Component{
         let pinned =[], repos = this.state.userData
         console.log(repos)
         for (let index = 0; index < 6; index+=2) {
-            let repo1 = repos[index] || {name: "", description: "", language:"", stargazers:"", forks:""}, repo2 = repos[index+1] || {name: "", description: "", language:"", stargazers:"" , forks:""}
+            let repo1 = repos[index] || {name: "", username:'', description: "", language:"", stargazers:"", forks:""}, repo2 = repos[index+1] || {name: "", description: "", language:"", stargazers:"" , forks:""}
             console.log(repo1)
             pinned.push(
                 <div className="w-full flex inline">
@@ -42,6 +41,7 @@ export class Overview extends React.Component{
                     <div>
                         <Octicon icon={Repo} size='small' ariaLabel='GitHub'/>
                         <span> <a href="http://" className="p-2 text-blue-500 text-sm font-semibold hover:underline">{repo1.name}</a> </span>
+                        
                         <div><a href="http://" className="p-3 text-xs">{repo1.description}</a></div>
                         <div className="pt-3 ml-4 ">
                             <div className="inline">

@@ -10,7 +10,7 @@ function Header() {
         <div className="w-1/4 flex flex-wrap">
           <Octicon icon={MarkGithub} size='medium' className="text-white mt-4 ml-5 mr-5" />
           <input type="text" className="search w-3/5 h-5 col mt-6 mb-2 border-none focus:outline-none focus:bg-white focus:text-black" placeholder="Search or jump to..."/>
-           <img src={Slash} />
+           <img src={Slash} alt="slash" />
         </div> 
         <div className="w-3/4 flex">
         <div className="flex justify-start pt-5 text-white font-semibold text-sm">

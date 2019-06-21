@@ -1,12 +1,16 @@
 import React from 'react'
 import axios from 'axios'
+import Octicon,{Location} from '@primer/octicons-react';
 
 class Followers extends React.Component{
     constructor(){
         super()
         this.state = {
             username: '',
-            userData:[]
+            name: "",
+            location:"",
+            bio:"",
+            userData:[],
             
         }
         this.generateFollowers = this.generateFollowers.bind(this)
@@ -35,6 +39,10 @@ generateFollowers(){
                         <input className="inline float-right justify-center button col w-1/14 h-6 rounded border border-gray-500 font-semibold text-sm pl-4 pr-4" type="submit" value="Follow"/>
                                 <div className="p-3">
                                    <span className="text-sm  pl-4 pr-4">{follower.bio}</span>
+                                   <span>
+                                       <Octicon icon={Location} size='small' className='col'/>
+                                       <span>{follower.location}</span>
+                                   </span>
                                 </div>
                     
                     </div>

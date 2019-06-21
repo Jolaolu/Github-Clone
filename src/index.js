@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { Switch, Route, Link, BrowserRouter as Router } from 'react-router-dom';
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import Layout from './pages/Layout';
 import Repositories from './components/layout/Repositories';
 import Stars from './components/layout/Stars';
@@ -22,7 +22,7 @@ ReactDOM.render(
                 <Route path="/user/:username/Repositories" render={props => <Repositories {...props}/>} />
                 <Route path="/user/:username/Stars" render={props => <Stars {...props}/>}/>
                 <Route path="/user/:username/Followers" render={props => <Followers {...props}/>} />
-                <Route path="/user/:username/Following"  render={props => <Followers {...props} />} />
+                <Route path="/user/:username/Following"  render={props => <Following {...props} />} />
           
         </Switch>
         {/* <App /> */}

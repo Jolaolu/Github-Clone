@@ -1,6 +1,5 @@
 import React from 'react'
-import Overview from './Overview';
-import {Link} from 'react-router-dom'
+
 
 const Navigation = props => {
     return (

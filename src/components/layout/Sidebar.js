@@ -1,6 +1,5 @@
 import React from 'react';
-import axios from 'axios';
-import Octicon, {Link} from '@primer/octicons-react'
+import Octicon, {Link, Organization, Location} from '@primer/octicons-react'
 
 
 const Sidebar = props => {
@@ -20,6 +19,15 @@ const Sidebar = props => {
                     <div className="w-4/5  pt-3 pb-5">
                         <input type="submit" value="Follow" className="button col w-full h-8 rounded border border-gray-500 font-semibold text-sm focus:border-none"/>
                     </div>
+                    <div className="w-4/5 text-sm">{props.bio}</div>
+                    <div className="">
+                        <Octicon icon={Organization} size='small' className=" w-8 inline pr-2" />
+                        <a href={props.company}>{props.company}</a>
+                    </div>
+                    <div className="text-xs col">
+                        <Octicon icon={Location}  className=" w-8 inline pr-2"/>
+                        <span>{props.location}</span>
+                    </div>
                     <div className="inline">
                         <Octicon icon={Link} size='small'  srcset="" className=" w-8 inline pr-2"/>
                         <a href={props.blog} className="inline hover:underline text-sm text-blue-600">{props.blog}</a>
@@ -29,6 +37,7 @@ const Sidebar = props => {
                     </div>
                     <div className="w-4/5 mt-4">
                         <div className="col pt-4 border-t border-gray-300 font-semibold">Organizations</div>
+                        <span>{props.organization_url}</span>
                     </div>
                 </div>
             </div>
